@@ -1,5 +1,4 @@
 class Solution:
-
     def encode(self, strs: List[str]) -> str:
         res=''
         for i in strs:
