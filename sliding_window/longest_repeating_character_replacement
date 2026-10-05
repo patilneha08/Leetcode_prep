@@ -1,0 +1,16 @@
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        l,r=0,0
+        h={}
+        maxf,maxl=0,0
+        for r in range(len(s)):
+            h[s[r]]=h.get(s[r],0)+1
+            maxf=max(maxf,h[s[r]])
+            changes=(r-l+1)-maxf
+            if changes>k:
+                h[s[l]]=h[s[l]]-1
+                l+=1
+                maxf=max(h.values())
+            else:
+                maxl=max(maxl,r-l+1)
+        return maxl
