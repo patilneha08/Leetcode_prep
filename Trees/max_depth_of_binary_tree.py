@@ -22,3 +22,18 @@ class Solution:
                     q.append(root.right)
             l+=1
         return l
+
+#Using iterative DFS
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        res=1
+        stack=[[root,1]]
+        while stack:
+            root,depth=stack.pop()
+            if root:
+                res=max(res,depth)
+                stack.append([root.left,depth+1])
+                stack.append([root.right,depth+1])   
+        return res  
